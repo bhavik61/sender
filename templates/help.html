@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+<style type="text/css">
+
+	.u{
+		color: white;
+	}
+
+	.s{
+		color: red;
+	}
+</style>
+
+{% block content %}
+
+<div class="container" align="center">
+	<div class="my-3 rounded-lg bg-light border d" align="left" style="padding: 5px; max-width: 600px">
+		<h2 class="u"> hello,  {{request.user}}</h2>
+		<br>
+		<h5>in order to use this service you need to follow couple of steps</h5>
+		<br>
+
+		<u style="color: red">step 1</u>
+		<br>
+		<h6 >
+			👉 visit this link -><a href="https://myaccount.google.com/lesssecureapps" target="_blank">
+				myaccount.google.com
+			</a>
+			<br>
+			👉 turn on -> Allow less secure apps
+		</h6>
+
+		<u style="color: red">step 2</u>
+		<h6>
+			👉 visit this <a href="https://accounts.google.com/DisplayUnlockCaptcha" target="_blank">
+				accounts.google.com
+			</a>
+			<br>
+			👉 click on continue
+		</h6>
+		<br>
+		<h5>you're good to Go 🚀</h5>
+
+	</div>
+</div>
+
+{% endblock %}

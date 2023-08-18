@@ -1,0 +1,49 @@
+{% load static %}
+<style type="text/css">	
+	.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+ 	   	color: red;
+    	background-color: #d9d9d9;
+	}
+
+</style>
+
+<div class="container pt-2 mb-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-danger rounded-lg">
+
+  	<a class="navbar-brand" href="{% url 'home' %}" 
+  	style="font-family: Comic Sans MS; color: white; font-size: 1.44rem">
+		<font>Sender</font>
+	</a>
+
+  	<button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+
+  	<div class="collapse navbar-collapse bg-light rounded-lg" id="navbarSupportedContent">
+    	<ul class="navbar-nav mr-auto">
+    		<div class="nav nav-pills" style="padding: 5px" >
+			    <a class="nav-item nav-link text-monospace pt-2 {{home}}" href="{% url 'home' %}" 
+			        style="color: black">Home</a>
+			</div>
+			<div class="nav nav-pills" style="padding: 5px">
+			    <a class="nav-item nav-link text-monospace pt-2 {{emailsetting}}" href="{% url 'set-user' %}" 
+			        style="color: black">Email Settings</a>
+			</div>
+			<div class="nav nav-pills" style="padding: 5px">
+			    <a class="nav-item nav-link text-monospace pt-2 {{help}}" href="{% url 'help' %}" 
+			        style="color: black">Help</a>
+			</div>
+			<div class="nav nav-pills" style="padding: 5px">
+				<li class="nav-item dropdown text-monospace">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: black">Logout</a>
+					    <div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="{% url 'logout' %}">{{request.user}}, Logout</a>
+						</div>
+				</li>
+			</div>
+
+      	</ul>
+    </div>
+
+</nav>
+</div>

@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+	
+<div class="container d-flex justify-content-center">
+<div class="flex-grow-1 w">
+	<div class="card card-body">
+		FROM:
+		{% for i in email_from_list %}
+			{%if i.isDefault == True %}
+				<h4>{{i.userEmail}}</h4>
+			{% endif %}
+		{% endfor %}
+
+		<hr>
+		TO:
+		{% for e in email_list %}
+			{% if e.selectedEmailList == True %}
+				<h4>{{e}}</h4>
+			{% endif %}
+		{% endfor %}
+
+		<hr>
+		SUBJECT: <strong>{{email_draft}}</strong>
+		<hr>
+		MESSAGE: <strong>{{email_draft.emailDraftMessage}}</strong>
+		<hr>
+		<form action="" method="POST">
+ 		 	{% csrf_token %}
+			<a href="{% url 'home' %}" class="btn btn-secondary">Back!</a>
+			{% if email_list %}
+				<button type="submit" class="btn btn-info">
+					Send Email
+					<svg class="bi bi-arrow-up-circle" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				  	<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+				  	<path fill-rule="evenodd" d="M4.646 8.354a.5.5 0 0 0 .708 0L8 5.707l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z"/>
+				  	<path fill-rule="evenodd" d="M8 11.5a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-1 0v5a.5.5 0 0 0 .5.5z"/>
+					</svg>
+				</button>
+			{% endif %}
+		</form>
+	</div>
+</div>
+</div>
+{% endblock %}
